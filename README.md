@@ -24,41 +24,41 @@ the [Datamuse API][datamuse] site. To _be honest_, I don't fully understand all
 of the arguments - see the Datamuse documentation for more insight.
 
 * `init( [apiKey [, timeout]] )`
-** `apiKey` - I am the high-consumption API key.
-** `timeout` - I am the HTTP timeout (in seconds) to apply to the HTTP
+  * `apiKey` - I am the high-consumption API key.
+  * `timeout` - I am the HTTP timeout (in seconds) to apply to the HTTP
    underlying HTTP request object.
 
 * `getWords( [all arguments optional] )`
-** `ml` - Means like term.
-** `sl` - Sounds like term.
-** `sp` - Spelled like term.
-** `rel_jja`
-** `rel_jjb`
-** `rel_syn` - Synonyms for term.
-** `rel_trg`
-** `rel_ant` - Antonyms for term.
-** `rel_spc`
-** `rel_gen`
-** `rel_com`
-** `rel_par`
-** `rel_bga`
-** `rel_bgb`
-** `rel_rhy` - Perfect rhymes for term.
-** `rel_nry` - Near rhymes for term.
-** `rel_hom`
-** `rel_cns`
-** `v`
-** `topics`
-** `lc`
-** `rc`
-** `max` - Max number of results (defaults to 10).
-** `md` - Metadata for term.
-** `qe` - Query echo for term.
+  * `ml` - Means like term.
+  * `sl` - Sounds like term.
+  * `sp` - Spelled like term.
+  * `rel_jja`
+  * `rel_jjb`
+  * `rel_syn` - Synonyms for term.
+  * `rel_trg`
+  * `rel_ant` - Antonyms for term.
+  * `rel_spc`
+  * `rel_gen`
+  * `rel_com`
+  * `rel_par`
+  * `rel_bga`
+  * `rel_bgb`
+  * `rel_rhy` - Perfect rhymes for term.
+  * `rel_nry` - Near rhymes for term.
+  * `rel_hom`
+  * `rel_cns`
+  * `v`
+  * `topics`
+  * `lc`
+  * `rc`
+  * `max` - Max number of results (defaults to 10).
+  * `md` - Metadata for term.
+  * `qe` - Query echo for term.
 
 * `getSuggestions( s [,v [, max]] )`
-** `s` - The term being searched.
-** `v`
-** `max` - Max number of results (defaults to 10).
+  * `s` - The term being searched.
+  * `v`
+  * `max` - Max number of results (defaults to 10).
 
 **NOTE**: The Datamuse API is free for most use-cases. But, you can request an
 API Key for high-volume consumption. Unfortunately, at this time, the API Key
