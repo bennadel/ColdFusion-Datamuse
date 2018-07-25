@@ -3,7 +3,7 @@
 
 by [Ben Nadel][bennadel]
 
-**Version 0.0.0**
+**Version 1.0.0**
 
 The [Datamuse API][datamuse] is a word-finding engine for Developers. It
 provides a very flexible API for locating words that adhere to a given set of
@@ -68,7 +68,164 @@ trying to figuring out how it gets applied. The API Key is not documented well.
 
 ## Examples
 
-_To do..._
+The Datamuse API is very flexible. And, allows a number of the parameters to
+work in conjunction with each other. This lets you get very specific with the
+search, like finding words that start with "s", are 5-letters long, and rhyme
+with "daft". The following are some examples of what you might want to do:
+
+```cfm
+<cfscript>
+	// Get words that start with the string "st" and are 5 letters long.
+	words = new lib.DatamuseClient().getWords(
+		sp = "st???"
+	);
+</cfscript>
+```
+
+This returns the following words:
+
+* `state`
+* `stick`
+* `stand`
+* `stock`
+* `style`
+* `stone`
+* `store`
+* `study`
+* `steel`
+* `story`
+
+```cfm
+<cfscript>
+	// Get words that start with "s" and end with "y".
+	words = new lib.DatamuseClient().getWords(
+		sp = "s*y"
+	);
+</cfscript>
+```
+
+This returns the following words:
+
+* `strategy`
+* `say`
+* `study`
+* `serendipity`
+* `story`
+* `security`
+* `society`
+* `savvy`
+* `synergy`
+* `survey`
+
+```cfm
+<cfscript>
+	// Get words that start with "s" and rhyme with "bad".
+	words = new lib.DatamuseClient().getWords(
+		rel_rhy = "bad",
+		sp = "s*"
+	);
+</cfscript>
+```
+
+This returns the following words:
+
+* `sad`
+* `scad`
+* `shad`
+* `strad`
+* `sociedad`
+* `sinbad`
+* `soledad`
+* `stalingrad`
+* `scantily clad`
+* `sketch pad`
+
+```cfm
+<cfscript>
+	// Get words that mean something similar to "awesome".
+	words = new lib.DatamuseClient().getWords(
+		ml = "awesome"
+	);
+</cfscript>
+```
+
+This returns the following words:
+
+* `amazing`
+* `awful`
+* `impressive`
+* `awing`
+* `awe-inspiring`
+* `unbelievable`
+* `fantastic`
+* `incredible`
+* `wonderful`
+* `terrific`
+
+```cfm
+<cfscript>
+	// Get words that are synonyms to "insane" and are 4-letters long.
+	words = new lib.DatamuseClient().getWords(
+		rel_syn = "insane",
+		sp = "????"
+	);
+</cfscript>
+```
+
+This returns the following words:
+
+* `wild`
+* `sick`
+* `daft`
+* `nuts`
+* `amok`
+* `loco`
+* `bats`
+
+```cfm
+<cfscript>
+	// Get the number of syllables in "countenance".
+	// --
+	// NOTE: There is no "end point" for syllable count. So, in order to get it, we're
+	// going to use the Query Echo parameter, which will echo the value in the given 
+	// parameter (sp) as the first item in the result. We can then use the metadata
+	// parameter (md) to tell Datamuse to return the (s) syllable count in the result.
+	words = new lib.DatamuseClient().getWords(
+		sp = "countenance",
+		qe = "sp",
+		md = "s",
+		max = 1
+	);
+</cfscript>
+```
+
+This returns the following words:
+
+* `countenance` with syllable count metadata, `3`.
+
+```cfm
+<cfscript>
+	// Get word suggesions for "bla".
+	words = new lib.DatamuseClient().getSuggestions(
+		s = "bla"
+	);
+</cfscript>
+```
+
+This returns the following words:
+
+* `black`
+* `blancard`
+* `blanford`
+* `blanket`
+* `blast`
+* `blazen`
+* `blatant`
+* `blade`
+* `blaze`
+* `blank`
+
+Hopefully you can see the flexibility provided by the Datamuse API.
 
 
 [bennadel]: https://www.bennadel.com

@@ -4,7 +4,7 @@ component
 	{
 
 	/**
-	* I initialize the Http Transport for the Datamuse API.
+	* I initialize the Datamuse API client with the given settings.
 	* 
 	* @apiKey I am the API key used to authenticate the HTTP requests.
 	* @timeout I am the timeout (in seconds) used to manage the HTTP requests.
@@ -82,6 +82,9 @@ component
 
 	/**
 	* I set the Datamuse API key to be sent with each request.
+	* 
+	* CAUTION: At this time, the API key does not get applied (I am waiting on a response
+	* from Datamuse on how to actually implement the API key).
 	* 
 	* @newApiKey I am the Datamuse API key.
 	* @output false
